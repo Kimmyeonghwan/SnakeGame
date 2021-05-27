@@ -12,14 +12,13 @@
 #ifndef KEYBOARDINPUT_H
 #define KEYBOARDINPUT_H
 
-#include "IInput.h"
 
-class KeyBoardInput : public IInput
+class KeyBoardInput
 {
     public:
         KeyBoardInput();
         ~KeyBoardInput();
-        static const char* getInput();
+        static int getInput();
 };
 
 #endif

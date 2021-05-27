@@ -8,10 +8,8 @@
 #include <ncurses.h>
 #include "Input/KeyBoardInput.h"
 
-const char* KeyBoardInput::getInput()
+int KeyBoardInput::getInput()
 {
-
     keypad(stdscr, TRUE);
-    int key = wgetch(stdscr);
-    return keyname(key);
+    return wgetch(stdscr);
 }

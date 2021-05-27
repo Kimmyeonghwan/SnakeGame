@@ -24,4 +24,8 @@ void StartScreen::initScreen()
     initscr();                          // init screen
     noecho();                           // input이 screen에 보이지 않음.
     keypad(stdscr, true);               // init keypad
+    while(1)
+    {
+        char c = getch();
+    }
 }

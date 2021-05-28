@@ -9,8 +9,8 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	//StartScreen();
-
+	StartScreen();
+/*
      FileInput fin;
      fin.readFile();
 
@@ -23,4 +23,5 @@ int main(int argc, char *argv[])
          }
          cout << endl;
      }
+	 */
 }

@@ -20,11 +20,11 @@ class FileInput
     public:
         int width, height;
         string path;
+        int level = 1;
         char** objects;
         FileInput(string p); // FileInput Constructor
         ~FileInput();
         void readFile(); // path에 있는 맵파일을 objects로 바꾸는 과정
-
         GameMap convertGameMap(); // objects를 GameMap으로 바꾸는 과정
         bool isFileExist(); // 파일이 존재하는지 확인
 };

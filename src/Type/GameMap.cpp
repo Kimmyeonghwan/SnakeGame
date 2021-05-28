@@ -13,7 +13,7 @@
 #include <fstream>
 using namespace std;
 
-GameMap::GameMap(vector<vector<int> > m)
+GameMap::GameMap(vector<vector<Object> > map)
 {
     //
 }

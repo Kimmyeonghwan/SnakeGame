@@ -12,7 +12,15 @@
 #include "Type/Direction.h"
 #include <ncurses.h>
 
+
+
 Direction::Direction(int k)
 {
     key = k;
 }
+
+Direction::~Direction()
+{
+
+}
+

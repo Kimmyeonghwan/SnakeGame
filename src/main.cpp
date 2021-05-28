@@ -9,10 +9,18 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	
-	//cout <<FileInput::isFileExist;
-	//cout <<FileInput::isFileExist;
-	//cout <<FileInput::isFileExist;
-	//cout << FileInput::getLevel;
-}
+	//StartScreen();
 
+     FileInput fin;
+     fin.readFile();
+
+     GameMap m = fin.convertGameMap();
+
+     auto mm = m.map;
+     for (auto list : mm) {
+         for (auto obj : list) {
+             cout << obj;
+         }
+         cout << endl;
+     }
+}

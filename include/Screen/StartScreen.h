@@ -18,6 +18,8 @@ class StartScreen : protected IScreen
         StartScreen();
         ~StartScreen();
         void initScreen();
+        void startMenu();
+        void maker();
 };
 
 #endif

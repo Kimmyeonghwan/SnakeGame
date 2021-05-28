@@ -18,28 +18,29 @@
 
 using namespace std;
 
-FileInput::FileInput(string p)
+FileInput::FileInput(int level) : level(level)
 {
     if(!FileInput::isFileExist()) return;
-    ifstream f("../map/" + to_string(this->level) + ".txt", ios::in);
-    path = p;
 }
 
 FileInput::~FileInput()
-{
+{}
 
+string FileInput::getPath() const {
+    return "./map/" + to_string(this->level) + ".txt";
 }
+
 
 bool FileInput::isFileExist()
 {
     // 파일이 존재하는지 확인
-    ifstream f("../map/" + to_string(this->level) + ".txt", ios::in);
+
+    ifstream f(getPath(), ios::in);
 	if (f.fail())
 	{
 		cerr << "파일을 열 수 없습니다.\n";
 	    return false;
 	}
-    
     
     f.close();
     return true;
@@ -48,15 +49,32 @@ bool FileInput::isFileExist()
 void FileInput::readFile()
 {
     if(!FileInput::isFileExist()) return;
-    ifstream f(path);
+    ifstream f(getPath());
     string s;
-    f >> s;
-    
+
+    map.clear();
+    height = 0;
+    while (f.peek() != EOF) {
+        getline(f, s);
+
+        vector<Object> map;
+
+        for (char c : s) {
+            if (c >= '0' && c <= '9') {
+                int obj = c - '0';
+                map.push_back(Object(obj));
+            }
+        }
+        this->map.push_back(map);
+
+        ++height;
+    }
+    width = s.size();
 
     level++;
 }
 
 GameMap FileInput::convertGameMap()
 {
-
+    return GameMap(map);
 }

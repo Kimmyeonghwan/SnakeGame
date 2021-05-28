@@ -1,5 +1,5 @@
 CXX				:= g++
-CXXFLAGS 		:= -std=c++14 -Wextra -g -lncurses
+CXXFLAGS 		:= -std=c++14 -Wextra -g -lncursesw
 
 SRC				:= src
 INCLUDE			:= include

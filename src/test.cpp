@@ -3,20 +3,22 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include "../include/Type/GameMap.h"
+#include "../include/Type/Object.h"
+#include "../include/Input/FileInput.h"
 
 using namespace std;
 
-
+/*
 int main(int argc, char *argv[])
-{
+
+{ //path에 있는 맵파일을 objects로 바꾸는 과정
     ifstream f("../map/1.txt", ios::in);
-    if(f.fail()) cout << "OMG" << endl;
-    else cout << "GOD" << endl;
     string s;
-    getline(f, s ,'44');
-    cout << s << endl;
-    cout << s << endl;
+    getline(f, s ,',');
+    vector<vector<Object>> obj;
 
 
 }
 
+*/

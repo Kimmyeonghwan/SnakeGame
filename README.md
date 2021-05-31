@@ -1,2 +1,1 @@
-# SnakeGame
-Cpp Programming Project
+# Snake_Game

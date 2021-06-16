@@ -1,20 +1,25 @@
+/**
+ * @file main.cpp
+ * @author 김명환(20181582), 임태민(20171690)
+ * @brief 
+ * @version 1.0
+ * @date 2021-06-01
+ */
+
 #include <iostream>
 #include <ncurses.h>
-#include "Screen/StartScreen.h"
-#include "Input/KeyBoardInput.h"
-#include "Input/FileInput.h"
-
+#include "UI.h"
+#include "Map.h"
 using namespace std;
-
 
 int main(int argc, char *argv[])
 {
-	StartScreen();
-/*
-     FileInput fin;
+	UI();
+	/*
+     Map fin;
      fin.readFile();
 
-     GameMap m = fin.convertGameMap();
+     Map m = fin.convertGameMap();
 
      auto mm = m.map;
      for (auto list : mm) {
@@ -24,4 +29,5 @@ int main(int argc, char *argv[])
          cout << endl;
      }
 	 */
+	 
 }

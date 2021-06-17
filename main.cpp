@@ -3,7 +3,6 @@
  * @author 김명환(20181582), 임태민(20171690)
  * @brief 
  * @version 1.0
-<<<<<<< HEAD
  * @date 2021-06-01
  */
 
@@ -30,11 +29,7 @@ bool isWall(int x, int y) {
 	}
 	return false;
 }
-<<<<<<< Updated upstream
 
-=======
-<<<<<<< HEAD
->>>>>>> Stashed changes
 
 int main() {
 	WINDOW* GameBoard;  //게임이 진행되는 창
@@ -591,12 +586,7 @@ int main() {
 	delwin(MakerBoard);
 	endwin();
 	return 0;
-<<<<<<< Updated upstream
 
 }
 
-=======
-}
-=======
->>>>>>> parent of fd8a480 (Co-authored-by: ltm-lab <ltm-lab@users.noreply.github.com> C++ Project Snake Game Complete.)
->>>>>>> Stashed changes
+

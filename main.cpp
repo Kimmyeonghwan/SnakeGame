@@ -39,7 +39,7 @@ int main() {
 
 	initscr();
 	noecho();
-	curs_set(0);    //화면에 보이는 커서 설정, 0 : 커서 안보이게
+	curs_set(0);
 	keypad(stdscr, true);
 	timeout(200);
 	srand((unsigned int)time(NULL));

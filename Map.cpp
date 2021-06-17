@@ -1,37 +1,32 @@
 /**
- * @file FileInput.cpp
- * @author 김명환(20181582)
+ * @file Map.cpp
+ * @author 김명환(20181582), 임태민(20171690)
  * @brief 
  * @version 1.0
- * @date 2021-05-28
- * 
- * @copyright Copyright (c) 2021
- * 
+ * @date 2021-05-23
  */
 
-
-#include "Input/FileInput.h"
-#include "../Type/GameMap.h"
+#include "Map.h"
 #include <iostream>
 #include <string>
 #include <fstream>
 
 using namespace std;
 
-FileInput::FileInput(int level) : level(level)
+Map::Map(int level) : level(level)
 {
-    if(!FileInput::isFileExist()) return;
+    if(!Map::isFileExist()) return;
 }
 
-FileInput::~FileInput()
+Map::~Map()
 {}
 
-string FileInput::getPath() const {
-    return "./map/" + to_string(this->level) + ".txt";
+string Map::getPath() const {
+    return "map/" + to_string(this->level) + ".txt";
 }
 
 
-bool FileInput::isFileExist()
+bool Map::isFileExist()
 {
     // 파일이 존재하는지 확인
 
@@ -46,9 +41,9 @@ bool FileInput::isFileExist()
     return true;
 }
 
-void FileInput::readFile()
+void Map::readFile()
 {
-    if(!FileInput::isFileExist()) return;
+    if(!Map::isFileExist()) return;
     ifstream f(getPath());
     string s;
 
@@ -57,12 +52,12 @@ void FileInput::readFile()
     while (f.peek() != EOF) {
         getline(f, s);
 
-        vector<Object> map;
+        vector<int> map;
 
         for (char c : s) {
             if (c >= '0' && c <= '9') {
                 int obj = c - '0';
-                map.push_back(Object(obj));
+                map.push_back(obj);
             }
         }
         this->map.push_back(map);
@@ -74,7 +69,21 @@ void FileInput::readFile()
     level++;
 }
 
-GameMap FileInput::convertGameMap()
+
+Map Map::convertGameMap()
 {
-    return GameMap(map);
+    return Map(map);
 }
+
+
+
+Map::Map(vector<vector<int> > map)
+{
+    height = map.size();
+    if (height == 0) {}// error
+
+    width = map[0].size();
+    this->map = map;
+
+}
+

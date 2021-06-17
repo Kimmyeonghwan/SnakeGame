@@ -3,35 +3,34 @@
  * @author 김명환(20181582), 임태민(20171690)
  * @brief 
  * @version 1.0
+<<<<<<< HEAD
  * @date 2021-06-01
  */
 
 #include <iostream>
-#include <ncurses.h>
-#include "UI.h"
+#include <fstream>
 #include "Map.h"
+#include <ncurses.h>
+#include <stdlib.h>
+#include <time.h>
+#include <list>
+#include <vector>
+#include "Item.h"
+
 using namespace std;
 
-int main(int argc, char *argv[])
-{
-	UI();
-	/*
-     Map fin;
-     fin.readFile();
+vector<Wall> wall;
 
-     Map m = fin.convertGameMap();
-
-     auto mm = m.map;
-     for (auto list : mm) {
-         for (auto obj : list) {
-             cout << obj;
-         }
-         cout << endl;
-     }
-	 */
-	 
+bool isWall(int x, int y) {
+	for(int i = 0; i < wall.size(); i++) {
+		if(wall[i].getX() == x && wall[i].getY() == y) {
+			return true;
+			break;
+		}
+	}
+	return false;
 }
-<<<<<<< HEAD
+
 
 int main() {
 	WINDOW* GameBoard;  //게임이 진행되는 창
@@ -588,6 +587,6 @@ int main() {
 	delwin(MakerBoard);
 	endwin();
 	return 0;
+
 }
-=======
->>>>>>> parent of fd8a480 (Co-authored-by: ltm-lab <ltm-lab@users.noreply.github.com> C++ Project Snake Game Complete.)
+

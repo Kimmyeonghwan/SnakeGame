@@ -1,11 +1,10 @@
-/*
+/**
  * @file Map.cpp
  * @author 김명환(20181582), 임태민(20171690)
  * @brief 
  * @version 1.0
  * @date 2021-05-23
  */
-
 
 #include "Map.h"
 #include <iostream>
@@ -53,12 +52,12 @@ void Map::readFile()
     while (f.peek() != EOF) {
         getline(f, s);
 
-        vector<Object> map;
+        vector<int> map;
 
         for (char c : s) {
             if (c >= '0' && c <= '9') {
                 int obj = c - '0';
-                map.push_back(Object(obj));
+                map.push_back(obj);
             }
         }
         this->map.push_back(map);
@@ -78,7 +77,7 @@ Map Map::convertGameMap()
 
 
 
-Map::Map(vector<vector<Object> > map)
+Map::Map(vector<vector<int> > map)
 {
     height = map.size();
     if (height == 0) {}// error
@@ -86,12 +85,5 @@ Map::Map(vector<vector<Object> > map)
     width = map[0].size();
     this->map = map;
 
-}
-
-void Map::setObject(int x, int y, Object o) {
-    if (x < 0 || x >= width) {}// error
-    if (y < 0 || y >= height) {}// error
-
-    map[y][x] = o;
 }
 

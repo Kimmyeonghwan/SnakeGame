@@ -1,5 +1,5 @@
 /**
- * @file Snake.h
+ * @file Wall.h
  * @author 김명환(20181582), 임태민(20171690)
  * @brief 
  * @version 1.0
@@ -13,15 +13,15 @@
 #include <vector>
 using namespace std;
 
-class Snake {
+class Wall {
 private:
 	int x;
 	int y;
 public:
-	Snake(int a, int b){
+	Wall(int a, int b){
 	x = a;
 	y = b;
 }
 	int getX(){return x;}
-	int getY(){return y;}
+	int getY(){return y;} 
 };

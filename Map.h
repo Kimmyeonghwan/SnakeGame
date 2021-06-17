@@ -11,7 +11,6 @@
 
 #include <string>
 #include <vector>
-#include "Object.h"
 
 using namespace std;
 
@@ -31,9 +30,8 @@ class Map
         Map convertGameMap(); // objects를 GameMap으로 바꾸는 과정
         bool isFileExist(); // 파일이 존재하는지 확인
 
-        vector<vector<Object> > map;
-        Map(vector<vector<Object> > map);
-        void setObject(int x, int y, Object o);
+        vector<vector<int> > map;
+        Map(vector<vector<int> > map);
 };
 
 #endif

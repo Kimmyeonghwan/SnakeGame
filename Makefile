@@ -1,35 +1,29 @@
-CXX				:= g++
-CXXFLAGS 		:= -std=c++14 -Wextra -g -lncursesw
+CC = g++
+CFLAGS = -std=c++14 -fshort-wchar
 
-SRC				:= src
-INCLUDE			:= include
+LDFLAGS =
+LDLIBS = -lncursesw
 
-SRCEXT			:= cpp
+OBJS = main.o Map.o Item.o
 
-ifeq ($(OS),Windows_NT)
-EXECUTABLE	:= main.exe
-SOURCEDIRS	:= $(SRC)
-INCLUDEDIRS	:= $(INCLUDE)
-LIBDIRS		:= $(LIB)
-else
-EXECUTABLE	:= main.o
-SOURCEDIRS	:= $(shell find $(SRC) -type d)
-INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
-LIBDIRS		:= $(shell find $(LIB) -type d)
-endif
+TARGET = main
 
-BUILDDIR	:= build
+all : $(TARGET)
 
-CXXINCLUDES	:= $(patsubst %,-I%, $(INCLUDEDIRS:%/=%))
-CXXLIBS		:= $(patsubst %,-L%, $(LIBDIRS:%/=%))
+$(TARGET) : $(OBJS)
+	$(CC) -o $@ $^ $(LDLIBS) $(CFLAGS)
 
-SOURCES		:= $(wildcard $(patsubst %,%/*.$(SRCEXT), $(SOURCEDIRS)))
-OBJECTS		:= $(patsubst $(SOURCEDIRS)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+Map.o : Map.cpp Map.h
+	$(CC) -c Map.cpp
 
-.PHONY: clean
-clean:
-	-$(RM) $(SRC)/$(EXECUTABLE)
-	-$(RM) $(OBJECTS)
+Item.o : Item.cpp Item.h
+	$(CC) -c Item.cpp
 
-run: clean
-	$(CXX) $(SOURCES) $(CXXINCLUDES) $(CXXFLAGS) -o build/main.o && ./build/main.o
+main.o : main.cpp
+	$(CC) -c main.cpp
+
+
+clean :
+	rm -rf $(TARGET) $(OBJS)
+run :
+	./$(TARGET)

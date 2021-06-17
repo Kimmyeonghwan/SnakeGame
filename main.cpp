@@ -38,7 +38,6 @@ int main() {
 	WINDOW* NextStage; //다음 스테이지 대기 창
 
 	initscr();
-	//resize_term(50, 50);
 	noecho();
 	curs_set(0);    //화면에 보이는 커서 설정, 0 : 커서 안보이게
 	keypad(stdscr, true);
